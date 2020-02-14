@@ -97,7 +97,15 @@ class App
     
         @total_order = @item_price_arr.inject(0) {|sum, i|  sum + i }
         puts '_______________________'
-        puts "your total:        $#{@total_order}.00"
+        if @user_money >= @total_order
+            puts "your total:        $#{@total_order}.00"
+            puts "you had $#{@user_money}.00 dollars"
+            money_left = @user_money - @total_order
+            puts "you have $#{money_left}.00 dollars left"
+        else 
+            puts "your total:        $#{@total_order}.00"
+            puts "you dont have enough money $#{@user_money}.00"
+        end
     end
 end
 

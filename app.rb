@@ -14,10 +14,15 @@ require_relative 'side_dish'
 
 class App
     attr_accessor :user_name, :user_money
-    def initialize 
+    def initialize   #see is spelled correct 
         @user_name
         @user_money
         user_name_value
+        @main_dish = Main_dish.new
+        @side_dish = Side_dish.new
+        @side_dish_1 = Side_dish_1.new
+        order
+        order_total
     end
     def user_name_value
         puts '+++++++++++++++++++++++'
@@ -29,8 +34,46 @@ class App
         puts '+++++++++++++++++++++++'
         @user_money = gets.to_i
     end
+    def order
+        @main_dish
+        @side_dish
+        @side_dish_1
+    end
+    def order_total
+        puts '+++++++++++++++++++++++'
+        puts 'Order checkout'
+        puts '+++++++++++++++++++++++'
+        main_dish_price = @main_dish.item_price
+        case main_dish_price
+        when 2
+            puts 'Pizza              $2.00'
+        when 3
+            puts 'Cheese Burger      $3.00'
+        when 5
+            puts 'Burrito            $5.00'
+        else
+        end
+        side_dish_price = @side_dish.item_price
+        case main_dish_price
+        when 2
+            puts 'Salad              $1.00'
+        when 3
+            puts 'Fries              $2.00'
+        when 5
+            puts 'Onion rings        $3.00'
+        else
+        end
+        side_dish_1_price = @side_dish_1.item_price
+        case side_dish_1_price
+        when 2
+            puts 'Icecream           $2.00'
+        when 1
+            puts 'Pudding            $1.00'
+        when 4
+            puts 'Milkshake          $4.00'
+        else
+        end
+    end
 end
 
 testing = App.new
-puts testing.user_name
-puts testing.user_money

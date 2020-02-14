@@ -14,15 +14,20 @@ require_relative 'side_dish'
 
 class App
     attr_accessor :user_name, :user_money
-    def initialize   #see is spelled correct 
+    def initialize  
         @user_name
         @user_money
+        @main_dish_price
+        @side_dish_price
+        @side_dish_1_price
         user_name_value
         @main_dish = Main_dish.new
         @side_dish = Side_dish.new
         @side_dish_1 = Side_dish_1.new
         order
+        # add_more
         order_total
+        items_ordered
     end
     def user_name_value
         puts '+++++++++++++++++++++++'
@@ -43,8 +48,8 @@ class App
         puts '+++++++++++++++++++++++'
         puts 'Order checkout'
         puts '+++++++++++++++++++++++'
-        main_dish_price = @main_dish.item_price
-        case main_dish_price
+        @main_dish_price = @main_dish.item_price
+        case @main_dish_price
         when 2
             puts 'Pizza              $2.00'
         when 3
@@ -53,18 +58,18 @@ class App
             puts 'Burrito            $5.00'
         else
         end
-        side_dish_price = @side_dish.item_price
-        case main_dish_price
-        when 2
+        @side_dish_price = @side_dish.item_price
+        case @side_dish_price
+        when 1
             puts 'Salad              $1.00'
-        when 3
+        when 2
             puts 'Fries              $2.00'
-        when 5
+        when 3
             puts 'Onion rings        $3.00'
         else
         end
-        side_dish_1_price = @side_dish_1.item_price
-        case side_dish_1_price
+        @side_dish_1_price = @side_dish_1.item_price
+        case @side_dish_1_price
         when 2
             puts 'Icecream           $2.00'
         when 1
@@ -73,6 +78,26 @@ class App
             puts 'Milkshake          $4.00'
         else
         end
+    end
+    # def add_more
+    #     puts '+++++++++++++++++++++++'
+    #     puts 'Would you like to add more? ( Yes , No )'
+    #     puts '+++++++++++++++++++++++'
+    #     answer = gets.downcase.chomp
+    #     if answer == 'yes'
+    #         order()
+    #     else
+    #         puts '+++++++++++++++++++++++'
+    #         puts 'Ok :)'
+    #         puts '+++++++++++++++++++++++'
+    #     end
+    # end
+    def items_ordered
+        @item_price_arr = [@main_dish_price, @side_dish_price, @side_dish_1_price]
+    
+        @total_order = @item_price_arr.inject(0) {|sum, i|  sum + i }
+        puts '_______________________'
+        puts "your total:        $#{@total_order}.00"
     end
 end
 

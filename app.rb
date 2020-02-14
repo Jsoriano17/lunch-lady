@@ -92,7 +92,7 @@ class App
             puts '+++++++++++++++++++++++'
         end
     end
-    def items_ordered
+    def items_ordered  #wanted to add class to do calculations but not sure how, tried but didnt succed in getting item costs. 
         @item_price_arr = [@main_dish_price, @side_dish_price, @side_dish_1_price]
     
         @total_order = @item_price_arr.inject(0) {|sum, i|  sum + i }

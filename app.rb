@@ -15,9 +15,9 @@ require_relative 'side_dish'
 class App
     attr_accessor :user_name, :user_money
     def initialize 
-        user_name_value
         @user_name
         @user_money
+        user_name_value
     end
     def user_name_value
         puts '+++++++++++++++++++++++'

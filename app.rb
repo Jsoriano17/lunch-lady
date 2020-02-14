@@ -25,7 +25,7 @@ class App
         @side_dish = Side_dish.new
         @side_dish_1 = Side_dish_1.new
         order
-        # add_more
+        add_more
         order_total
         items_ordered
     end
@@ -79,19 +79,19 @@ class App
         else
         end
     end
-    # def add_more
-    #     puts '+++++++++++++++++++++++'
-    #     puts 'Would you like to add more? ( Yes , No )'
-    #     puts '+++++++++++++++++++++++'
-    #     answer = gets.downcase.chomp
-    #     if answer == 'yes'
-    #         order()
-    #     else
-    #         puts '+++++++++++++++++++++++'
-    #         puts 'Ok :)'
-    #         puts '+++++++++++++++++++++++'
-    #     end
-    # end
+    def add_more
+        puts '+++++++++++++++++++++++'
+        puts 'Would you like to add more? ( Yes , No )'
+        puts '+++++++++++++++++++++++'
+        answer = gets.downcase.chomp
+        if answer == 'yes'
+            order()
+        else
+            puts '+++++++++++++++++++++++'
+            puts 'Ok :)'
+            puts '+++++++++++++++++++++++'
+        end
+    end
     def items_ordered
         @item_price_arr = [@main_dish_price, @side_dish_price, @side_dish_1_price]
     
